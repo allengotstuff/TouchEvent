@@ -32,11 +32,11 @@ All the event handle function has to return a boolean, In a default case,
 * View:  (dispatchTouchEvent-False), (onTouchEvent-false), in some cases, a button's onTouchEvent return's true.
 
 By return True, you are telling the system, that this view in interested in consuming the Event, althougth there are a slide differentation between the three method:
-* dispatchTouchEvent ==true :  The remaing events destination will go to this funtion at this view.
+* dispatchTouchEvent ==true :  The remaing events destination will go to this funtion at this view and stop passing. **If return true, mutiple view/viewgroup's dispatchTouchEvent can still been called, depends on other view/viewgroup's order in the tree,**
 
 * onInterceptTouchEvent ==true: The remaing events will not stop pass up the event to its children view of this viewgroup, instead, it will trigger self _onTouchEvent_ and pass down to RootView or Activity
 
-* onTouchEvent ==true: The remaining event will be passed down through _dispatchTouchEvent_ to this View, and once event's got there, is will immediately handler by _onTouchEvent_, so no other View/ViewGourp's _onTouchEvent_ will be triggered for remaining events.
+* onTouchEvent ==true: The remaining event will be passed down through _dispatchTouchEvent_ to this View, and once event's got there, is will immediately handler by _onTouchEvent_, so no other View/ViewGourp's _onTouchEvent_ will be triggered for remaining events. **If return true, only this view/viewgroup's onTouchEvent will be trigger for remaining event. Other view/viewgroup's onTouchEvent will not be trigger.
 
 ![](https://github.com/allengotstuff/TouchEvent/blob/master/app/asset/Screen%20Shot%202017-09-08%20at%209.34.17%20PM.png)
 
