@@ -5,7 +5,13 @@
 - Screen Shot of method logging to show touchevent sequence.
 
 ### What is a TouchEvent:
-A touchEvent is a series of action that always including (only one ACTION_DOWN), and (0 - any ACTION_MOVE) and (only one ACTION_UP).
+
+There are three basic types of TouchEvent:
+* ACTION_DOWN is when you are finger first touch the screen.
+* ACTION_MOVE is while you are finger is on the screen, it also move postion in x,y axies
+* ACTION_MOVE is when you are finger left the screen.
+
+**A touchEvent is a series of action that always including (only one ACTION_DOWN), and (0 - any ACTION_MOVE) and (only one ACTION_UP).**
 
 Just imagine when you quickly tap the screen, the second you firgure touchs screen, the ACTION_DOWN event is trigger, and depends on whether you move your firgure while still touch the screen, it will trigger 0 - any of ACTION_MOVE. Finally, when you move your fingure away from the screen, once your firgure aparts from screen, the ACTION_UP is triggered. That is a complete TouchEvent series. __Remember, When your firgure left the screen, which the ACTION_UP is triggered. This touchEvent series is finish, if you touch screen after that, a brand new TouchEvent series will be calculated.__
 
