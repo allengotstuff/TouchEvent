@@ -48,10 +48,10 @@ By return True, you are telling the system, that this view in interested in cons
 
 ####  Complete TouchEvent Flow without interception or consumption:
 
-Event Pass UP:
+Event Pass from Activity to view:
 * Activty(dispatchTouchEvent) - ViewGroup(dispatchTouchEvent) - ViewGroup(onInterceptTouchEvent) - View(onInterceptTouchEvent)
 
-Event Pass Down:
+Event Pass from View to Activity:
 * View(onTouchEvent) - ViewGroup(onTouchEvent) - Activty(onTouchEvent)
 
 
